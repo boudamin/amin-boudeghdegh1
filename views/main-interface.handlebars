@@ -1,0 +1,18 @@
+<body>
+  <div class="container">
+
+
+    <section class="roles">
+      {{#each data}}
+      <div class="role">
+        <div class="role-card">
+          <img src="{{this.images}}" alt="{{this.altTexts}}">
+          <h3>{{this.titles}}</h3>
+        </div>
+        <div class="role-info">
+          <p class="role-description">{{this.descriptions}}</p>
+        </div>
+      </div>
+      {{/each}}
+    </section>
+  </div>

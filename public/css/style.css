@@ -1,0 +1,324 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Container */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #2c3e50;
+  /* Dark background */
+  color: #ecf0f1;
+  /* Light text color */
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #34495e;
+  /* Darker container background */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Bar Styles */
+.header-bar {
+  display: inline-flex;
+  /* Make the bar wrap only the content */
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e2c34;
+  /* Darker background for the bar */
+  padding: 12px 20px;
+  /* Adjust padding */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  /* Soft shadow for the bar */
+  margin-bottom: 20px;
+  /* Margin at the bottom */
+  gap: 20px;
+  /* Space between the elements */
+}
+
+/* Button Styles */
+.header-bar .cta-buttons,
+.header-bar .language-selector {
+  display: flex;
+  gap: 20px;
+  /* Space between the buttons */
+}
+
+.header-bar .cta-buttons .btn,
+.header-bar .language-selector .btn {
+  text-decoration: none;
+  background-color: #34495e;
+  /* Dark background for buttons */
+  color: #ecf0f1;
+  /* Light text for buttons */
+  padding: 10px 25px;
+  border-radius: 30px;
+  /* Rounded corners */
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  /* Transparent border */
+  position: relative;
+}
+
+.header-bar .cta-buttons .btn:hover,
+.header-bar .language-selector .btn:hover {
+  background-color: #1abc9c;
+  /* Lighter teal background on hover */
+  color: #fff;
+  /* White text on hover */
+  border-color: #16a085;
+  /* Border color on hover */
+}
+
+.header-bar .cta-buttons .btn:after,
+.header-bar .language-selector .btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Orange highlight */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 30px;
+}
+
+.header-bar .cta-buttons .btn:hover:after,
+.header-bar .language-selector .btn:hover:after {
+  opacity: 1;
+  /* Show the orange highlight on hover */
+}
+
+/* Header Styles */
+.header {
+  background-color: #1e2c34;
+  /* Dark background for the header */
+  color: #ecf0f1;
+  /* Light text */
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #f39c12;
+  /* Bright yellow for the main title */
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #bdc3c7;
+  /* Light gray text for the paragraph */
+  margin-bottom: 30px;
+}
+
+.header strong {
+  color: #1abc9c;
+  /* Bright teal for the name */
+}
+
+.header em {
+  font-style: italic;
+  color: #e74c3c;
+  /* Bright red for emphasized text */
+}
+
+.header-img {
+  width: 10rem;
+  /* Set width to 10rem */
+  height: 10rem;
+  /* Set height to 10rem */
+  border-radius: 50%;
+  /* Make it circular */
+  object-fit: cover;
+  /* Ensures the image maintains its aspect ratio while covering the container */
+  display: block;
+  /* Centers the image if it's inline */
+  margin: 0 auto;
+  /* Centers the image horizontally */
+}
+
+/* Roles Section */
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Role Styles */
+.role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #2d3e50;
+  /* Dark background for each role */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.role:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card for image and title */
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  background-color: #1e2c34;
+  /* Darker background for the card */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.role-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.role-card h3 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  /* White title */
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.role-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Role Info */
+.role-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.role-description {
+  font-size: 1.1rem;
+  color: #bdc3c7;
+  /* Light text for description */
+  margin-top: 10px;
+}
+
+/* Alternating Images (left-right layout) */
+.role:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.role:nth-child(even) {
+  flex-direction: row;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #1e2c34;
+  /* Dark footer background */
+  color: #ecf0f1;
+  /* Light text */
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 5px solid #16a085;
+  /* Accent color border at the top */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  font-size: 1.2rem;
+  color: #bdc3c7;
+  /* Light gray text */
+  margin-bottom: 20px;
+}
+
+.footer p strong {
+  color: #f39c12;
+  /* Bright yellow text for the name */
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #16a085;
+  /* Bright teal for icons */
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #1abc9c;
+  /* Lighter teal on hover */
+  transform: scale(1.1);
+  /* Slight zoom effect */
+}
+
+.social-icon:active {
+  transform: scale(1);
+  /* Reset size on click */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .roles {
+    flex-direction: column;
+  }
+
+  .role {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .role-card {
+    margin-bottom: 15px;
+  }
+
+  .role img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .role-description {
+    width: 90%;
+    text-align: center;
+    margin-top: 15px;
+  }
+}
