@@ -49,14 +49,13 @@ app.get('/', async (request, response) => {
 
   try {
 
-    response.render('entry-interface', {
+    response.render(__dirname + '/views/entry-interface', {
       title: 'Portofolio',
       styles: ['/css/style.css'],
       data: roleData,
 
     });
 
-    console.log(roleData.images);
   } catch (error) {
     response.status(500).send('Erreur serveur.');
   }
@@ -78,10 +77,8 @@ app.get('/lang-en', (req, res) => {
 app.get('/about', (req, res) => {
 
   if (getLanguage() === "fr") {
-    console.log("the selected language is French");
     res.sendFile('about-me-fr.html', { root: './public/html' });
   } else {
-    console.log("the selected language is English");
     res.sendFile('about-me-en.html', { root: './public/html' });
   }
 
