@@ -12,11 +12,21 @@
 </head>
 
 <body>
-  {{> header}} <!-- Inject the header partial -->
+  <!-- Dynamically choose the header based on language -->
+  {{#if (eq (getLanguage) "fr")}}
+  {{> header-fr}} <!-- Inject French header -->
+  {{else}}
+  {{> header-en}} <!-- Inject English header -->
+  {{/if}}
 
   {{{body}}} <!-- The body content will be inserted here -->
 
-  {{> footer}} <!-- Inject the footer partial -->
+  <!-- Dynamically choose the footer based on language -->
+  {{#if (eq (getLanguage) "fr")}}
+  {{> footer-fr}} <!-- Inject French footer -->
+  {{else}}
+  {{> footer-en}} <!-- Inject English footer -->
+  {{/if}}
 
   <script type="module" src="./js/main.js"></script>
 </body>

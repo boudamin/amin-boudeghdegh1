@@ -9,7 +9,9 @@ import compression from 'compression';
 import cors from 'cors';
 import options from './csp-options.js';
 import { engine } from 'express-handlebars';
-import roleData from './model/data.js';
+import roleDataEn from './model/data-en.js';
+import roleDataFr from './model/data-fr.js';
+import { setLanguage, getLanguage } from './model/preferences.js';
 import https from 'https';
 import { readFile } from 'fs/promises';
 
@@ -22,7 +24,12 @@ app.use(compression());
 app.use(cors());
 app.use(json());
 app.use(express.static('public'));
-app.engine('handlebars', engine());
+app.engine('handlebars', engine({
+  helpers: {
+    getLanguage: () => getLanguage(),
+    eq: (a, b) => a === b  // Equality helper for comparison
+  }
+}));
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.enable('trust proxy');
@@ -33,6 +40,16 @@ app.use((req, res, next) => {
 });
 //Paths coding 
 app.get('/', async (request, response) => {
+  let roleData = null;
+  console.log("getLanguage(): " + getLanguage());
+  if (getLanguage() === "fr") {
+    roleData = roleDataFr;
+    console.log("LANG SWITCHED TO fr")
+  } else {
+    roleData = roleDataEn;
+    console.log("LANG SWITCHED TO en")
+  }
+
   try {
 
     response.render('main-interface', {
@@ -46,6 +63,31 @@ app.get('/', async (request, response) => {
   } catch (error) {
     response.status(500).send('Erreur serveur.');
   }
+});
+
+app.get('/lang-fr', (req, res) => {
+  setLanguage("fr");
+  res.redirect('/');
+
+});
+
+app.get('/lang-en', (req, res) => {
+  setLanguage("en");
+  res.redirect('/');
+
+});
+
+
+app.get('/about', (req, res) => {
+
+  if (getLanguage() === "fr") {
+    console.log("the selected language is French");
+    res.sendFile('about-me-fr.html', { root: './public/html' });
+  } else {
+    console.log("the selected language is English");
+    res.sendFile('about-me-en.html', { root: './public/html' });
+  }
+
 });
 
 //Send an error 404 for undefined paths 
