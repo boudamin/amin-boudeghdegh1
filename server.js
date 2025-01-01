@@ -41,18 +41,15 @@ app.use((req, res, next) => {
 //Paths coding 
 app.get('/', async (request, response) => {
   let roleData = null;
-  console.log("getLanguage(): " + getLanguage());
   if (getLanguage() === "fr") {
     roleData = roleDataFr;
-    console.log("LANG SWITCHED TO fr")
   } else {
     roleData = roleDataEn;
-    console.log("LANG SWITCHED TO en")
   }
 
   try {
 
-    response.render('main-interface', {
+    response.render('entry-interface', {
       title: 'Portofolio',
       styles: ['/css/style.css'],
       data: roleData,
