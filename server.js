@@ -14,7 +14,11 @@ import roleDataFr from './model/data-fr.js';
 import { setLanguage, getLanguage } from './model/preferences.js';
 import https from 'https';
 import { readFile } from 'fs/promises';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 //creation of the server 
 let app = express();
 
