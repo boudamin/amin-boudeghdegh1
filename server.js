@@ -31,7 +31,7 @@ app.engine('handlebars', engine({
   }
 }));
 app.set('view engine', 'handlebars');
-app.set('views', './views');
+app.set('views', __dirname + '/../views');
 app.enable('trust proxy');
 
 app.use((req, res, next) => {
