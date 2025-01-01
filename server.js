@@ -49,7 +49,7 @@ app.get('/', async (request, response) => {
 
   try {
 
-    response.render(__dirname + '/views/entry-interface', {
+    response.render(__dirname + '/entry-interface', {
       title: 'Portofolio',
       styles: ['/css/style.css'],
       data: roleData,
