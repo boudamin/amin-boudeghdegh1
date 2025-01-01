@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/*"
+to ="main.handlebars"
+status =200
