@@ -49,13 +49,12 @@ app.get('/', async (request, response) => {
 
   try {
 
-    response.render('entry-interface', {
+    response.render('main-interface', {
       title: 'Portofolio',
       styles: ['/css/style.css'],
       data: roleData,
 
     });
-
   } catch (error) {
     response.status(500).send('Erreur serveur.');
   }
